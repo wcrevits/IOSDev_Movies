@@ -11,11 +11,10 @@ struct MoviesView: View {
     @State var selectedMovie : Movie?
     @Environment(MovieDataStore.self) var movieDataStore
     @Environment(PathStore.self) var pathStore
-    
     var body: some View {
         @Bindable var path = pathStore
-        NavigationStack(path: $path.path) {
-            VStack {
+        NavigationStack(path: $path.path){
+            VStack{
                 List(movieDataStore.getMovies(), id: \.self, selection: $selectedMovie) { movie in
                     NavigationLink(value: Route.movie(movie)) {
                         VStack(alignment: .leading){
@@ -32,7 +31,9 @@ struct MoviesView: View {
                     case .director(let director):
                         DirectorView(director: director)
                     }
+                    
                 }
+                
             }
         }
     }

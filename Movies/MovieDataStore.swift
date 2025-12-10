@@ -58,8 +58,9 @@ class MovieDataStore {
         do {
             print("⏳ Simulating 2-second load delay...")
             try await Task.sleep(for: .seconds(2)) // Simulate long load
-            // load movies
-            // sort
+            let data : Movies = load("movies.json")
+            movies.movies = data.movies
+            sort()
             print("✅ Data loaded successfully.")
             
         } catch {
