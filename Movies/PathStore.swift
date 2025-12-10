@@ -7,8 +7,11 @@
 
 import SwiftUI
 
-struct PathStore: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+@Observable
+class PathStore {
+    var path = [Route]()
+    
+    func clear() {
+        path = []   
     }
 }
