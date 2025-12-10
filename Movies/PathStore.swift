@@ -14,4 +14,8 @@ class PathStore {
     func clear() {
         path = []   
     }
+    
+    func reduceArray(index: Int){
+        path = Array(path.prefix(index + 1))
+    }
 }
